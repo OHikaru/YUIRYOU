@@ -9,9 +9,9 @@ export function HomeTeam({ members }: { members: TeamMember[] }) {
     <section className="section">
       <div className="shell">
         <SectionLead eyebrow="医師チーム" title="チーム紹介" description="医師ごとの専門性と役割分担がひと目で伝わるように整理しています。" />
-        <div className="card-grid card-grid--three">
+        <div className="card-grid card-grid--three card-grid--team">
           {members.map((member) => (
-            <article key={member.id} className="panel panel--profile">
+            <article key={member.id} className="panel panel--profile panel--profile-gradient">
               <Image src={member.image} alt={member.imageAlt} width={320} height={320} />
               <p className="eyebrow">{member.shortRole}</p>
               <h3>{member.name}</h3>
@@ -25,4 +25,3 @@ export function HomeTeam({ members }: { members: TeamMember[] }) {
     </section>
   );
 }
-

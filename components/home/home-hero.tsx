@@ -13,7 +13,7 @@ export function HomeHero({ trustChips }: HomeHeroProps) {
   return (
     <section className="hero hero--home">
       <div className="shell hero__layout">
-        <div>
+        <div className="hero-copy-cluster">
           <p className="eyebrow">{copy.hero.eyebrow}</p>
           <h1>{copy.hero.title}</h1>
           <p className="hero-copy hero-copy--strong">{copy.hero.description}</p>
@@ -46,4 +46,3 @@ export function HomeHero({ trustChips }: HomeHeroProps) {
     </section>
   );
 }
-

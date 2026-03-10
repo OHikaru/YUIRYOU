@@ -22,20 +22,22 @@ export function HomePricing({ plans }: { plans: PricingPlan[] }) {
     <section id="pricing" className="section section--pricing-surface">
       <div className="shell">
         <SectionLead eyebrow={copy.pricing.eyebrow} title={copy.pricing.title} description={copy.pricing.description} />
-        <div className="card-grid card-grid--pricing">
+        <div className="card-grid card-grid--pricing pricing-grid-shell">
           {plans.map((plan, index) => (
             <article key={plan.name} className={`panel panel--pricing ${pricingCardClasses[index] ?? ""}`}>
               <div className="pricing-card__top">
                 <span className="pricing-card__label">{copy.pricing.labels[index] ?? "伴走"}</span>
                 <p className="eyebrow">{plan.name}</p>
               </div>
-              <h3>{plan.price}</h3>
-              <p className="pricing-note">{plan.note}</p>
-              <ul className="stack-list">
-                {(plan.features ?? []).map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
+              <div className="pricing-card__body">
+                <h3>{plan.price}</h3>
+                <p className="pricing-note">{plan.note}</p>
+                <ul className="stack-list">
+                  {(plan.features ?? []).map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
             </article>
           ))}
         </div>
@@ -48,4 +50,3 @@ export function HomePricing({ plans }: { plans: PricingPlan[] }) {
     </section>
   );
 }
-
