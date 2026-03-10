@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+﻿import { defineArrayMember, defineField, defineType } from "sanity";
 
 const faqItem = defineType({
   name: "faqItem",
@@ -45,6 +45,7 @@ const teamMember = defineType({
   type: "document",
   fields: [
     defineField({ name: "id", title: "ID", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "sortOrder", title: "Sort Order", type: "number" }),
     defineField({ name: "name", title: "Name", type: "string", validation: (rule) => rule.required() }),
     defineField({ name: "role", title: "Role", type: "string", validation: (rule) => rule.required() }),
     defineField({ name: "shortRole", title: "Short Role", type: "string" }),
@@ -52,6 +53,7 @@ const teamMember = defineType({
     defineField({ name: "specialties", title: "Specialties", type: "array", of: [defineArrayMember({ type: "string" })] }),
     defineField({ name: "researchHighlights", title: "Research Highlights", type: "array", of: [defineArrayMember({ type: "string" })] }),
     defineField({ name: "supportThemes", title: "Support Themes", type: "array", of: [defineArrayMember({ type: "string" })] }),
+    defineField({ name: "selectedPublications", title: "Selected Publications", type: "array", of: [defineArrayMember({ type: "string" })] }),
     defineField({ name: "image", title: "Image", type: "image", options: { hotspot: true } }),
     defineField({ name: "imageAlt", title: "Image Alt", type: "string" }),
   ],

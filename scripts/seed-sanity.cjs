@@ -129,6 +129,7 @@ async function main() {
       _id: `teamMember.${member.id}`,
       _type: 'teamMember',
       id: member.id,
+      sortOrder: member.sortOrder,
       name: member.name,
       role: member.role,
       shortRole: member.shortRole,
@@ -136,6 +137,7 @@ async function main() {
       specialties: member.specialties,
       researchHighlights: member.researchHighlights,
       supportThemes: member.supportThemes,
+      selectedPublications: member.selectedPublications,
       imageAlt: member.imageAlt,
       ...(imageAssetId
         ? {

@@ -28,6 +28,12 @@ type SiteSettingsOverride = Partial<typeof siteConfig> & {
   pricingPlans?: typeof pricingPlans;
 };
 
+const fallbackImageMap: Record<string, string> = {
+  "obgyn-ai": "/images/team/team-obgyn-ai.svg",
+  "obgyn-rct": "/images/team/team-obgyn-rct-english.svg",
+  "rehab-media": "/images/team/team-rehab-youtube-ad.svg",
+};
+
 function normalizeService(service: Omit<ServiceDetail, "path"> & { path?: string }): ServiceDetail {
   const slug = service.slug;
   return {
@@ -38,14 +44,16 @@ function normalizeService(service: Omit<ServiceDetail, "path"> & { path?: string
 
 function normalizeTeamImagePath(memberId: string, image: string | null | undefined) {
   if (image) return image;
-
-  const fallbackImageMap: Record<string, string> = {
-    "obgyn-ai": "/images/team/team-obgyn-ai.svg",
-    "obgyn-rct": "/images/team/team-obgyn-rct-english.svg",
-    "rehab-media": "/images/team/team-rehab-youtube-ad.svg",
-  };
-
   return fallbackImageMap[memberId] ?? "/images/hero-medical-consulting.svg";
+}
+
+function sortTeamMembers(items: TeamMember[]) {
+  return [...items].sort((a, b) => {
+    const aOrder = a.sortOrder ?? Number.MAX_SAFE_INTEGER;
+    const bOrder = b.sortOrder ?? Number.MAX_SAFE_INTEGER;
+    if (aOrder !== bOrder) return aOrder - bOrder;
+    return a.name.localeCompare(b.name, "ja");
+  });
 }
 
 export async function getSiteSettings(): Promise<SiteSettingsOverride> {
@@ -82,19 +90,23 @@ export async function getSiteSettings(): Promise<SiteSettingsOverride> {
 
 export async function getTeamMembers(): Promise<TeamMember[]> {
   if (!sanityEnabled || !sanityClient) {
-    return teamMembers;
+    return sortTeamMembers(teamMembers);
   }
 
   try {
     const data = await sanityClient.fetch<TeamMember[]>(teamMembersQuery, {}, { next: { revalidate: 60 } });
-    if (!data?.length) return teamMembers;
-    return data.map((member) => ({
-      ...member,
-      image: normalizeTeamImagePath(member.id, member.image),
-      imageAlt: member.imageAlt || `${member.name}のプロフィール写真`,
-    }));
+    if (!data?.length) return sortTeamMembers(teamMembers);
+    return sortTeamMembers(
+      data.map((member) => ({
+        ...member,
+        sortOrder: member.sortOrder ?? Number.MAX_SAFE_INTEGER,
+        selectedPublications: member.selectedPublications ?? [],
+        image: normalizeTeamImagePath(member.id, member.image),
+        imageAlt: member.imageAlt || `${member.name}のプロフィール写真`,
+      })),
+    );
   } catch {
-    return teamMembers;
+    return sortTeamMembers(teamMembers);
   }
 }
 

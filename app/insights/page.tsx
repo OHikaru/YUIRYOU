@@ -2,12 +2,13 @@
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { siteConfig } from "@/content/site";
 import { SectionLead } from "@/components/ui";
 import { getArticles, getTeamMembers } from "@/lib/site-data";
 import { buildMetadata, formatJapaneseDate } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "インサイト / コラム | 医療コンサルティングチーム",
+  title: `インサイト / コラム | ${siteConfig.brandName}`,
   description: "医療、臨床研究、AI、英語、YouTube・広告に関するコラムを掲載。法人向け医療コンサルティングの視点で、実務に直結する知見を整理します。",
   path: "/insights",
 });
@@ -43,7 +44,7 @@ export default async function InsightsPage() {
                   <p>{article.summary}</p>
                   <div className="article-meta">
                     <span>{formatJapaneseDate(article.publishedAt)}</span>
-                    <span>{author?.name ?? "医療コンサルティングチーム"}</span>
+                    <span>{author?.name ?? siteConfig.brandName}</span>
                   </div>
                 </article>
               );
@@ -54,4 +55,3 @@ export default async function InsightsPage() {
     </>
   );
 }
-

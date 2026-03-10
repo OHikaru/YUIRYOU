@@ -1,10 +1,11 @@
 ﻿import type { Metadata } from "next";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { siteConfig } from "@/content/site";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "個人情報保護方針 | 医療コンサルティングチーム",
+  title: `個人情報保護方針 | ${siteConfig.brandName}`,
   description: "法人向け医療コンサルティングサイトにおける個人情報保護方針です。",
   path: "/privacy-policy",
 });

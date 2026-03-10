@@ -1,5 +1,7 @@
 ﻿import { ImageResponse } from "next/og";
 
+import { siteConfig } from "@/content/site";
+
 export const size = {
   width: 1200,
   height: 630,
@@ -23,7 +25,7 @@ export default function OpenGraphImage() {
           justifyContent: "space-between",
         }}
       >
-        <div style={{ display: "flex", fontSize: 32, letterSpacing: 4 }}>医療コンサルティングチーム</div>
+        <div style={{ display: "flex", fontSize: 32, letterSpacing: 4 }}>{siteConfig.brandName}</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div style={{ display: "flex", flexDirection: "column", fontSize: 72, lineHeight: 1.2, fontWeight: 700 }}>
             <span>医療監修で終わらせない。</span>

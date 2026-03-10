@@ -1,6 +1,6 @@
 ﻿export const siteConfig = {
-  brandName: "医療コンサルティングチーム",
-  brandNameEn: "Medical Consulting Team",
+  brandName: "YUIRYOU株式会社",
+  brandNameEn: "YUIRYOU Inc.",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://yuiryou.vercel.app",
   defaultTitle: "医療監修で終わらせない。医師3名が事業・研究・発信まで伴走する法人向け医療コンサルティング",
   defaultDescription:
@@ -26,6 +26,7 @@ export type FaqItem = {
 
 export type TeamMember = {
   id: string;
+  sortOrder: number;
   name: string;
   role: string;
   shortRole: string;
@@ -33,6 +34,7 @@ export type TeamMember = {
   specialties: string[];
   researchHighlights: string[];
   supportThemes: string[];
+  selectedPublications: string[];
   image: string;
   imageAlt: string;
 };
@@ -172,40 +174,62 @@ export const timelinePhases = [
 
 export const teamMembers: TeamMember[] = [
   {
-    id: "obgyn-ai",
-    name: "産婦人科医A",
-    role: "産婦人科医 / 医療AI・情報品質担当",
-    shortRole: "AI・情報品質",
-    bio: "医療AI活用と医療情報品質の設計を担当。AIを使う前提でも、医療情報の正確性と運用ルールを崩さない体制づくりに強みがあります。",
-    specialties: ["医療AI活用方針", "医療情報品質レビュー", "LP / 営業資料レビュー", "女性ヘルスケア領域"],
-    researchHighlights: ["臨床研究経験をもとに論点整理を支援", "女性ヘルスケア領域の情報整理と監修に対応"],
-    supportThemes: ["AI導入時の監修フロー", "医療表現リスク整理", "コンテンツ品質基準の策定"],
-    image: "/images/team/team-obgyn-ai.svg",
-    imageAlt: "産婦人科医Aのプロフィールイメージ",
+    id: "obgyn-rct",
+    sortOrder: 1,
+    name: "三苫 智裕",
+    role: "代表取締役社長 / 産婦人科医 / 英語・RCT・研究実務担当",
+    shortRole: "代表取締役社長 / 英語・RCT・研究実務",
+    bio: "YUIRYOU株式会社 代表取締役社長。産婦人科領域の臨床と研究実務を背景に、英語論文レビュー、PoC・RCT設計、論文化支援を担当します。researchmap掲載の多施設研究や英語論文の実績をもとに、企業の研究計画を事業・営業・海外説明に接続する役割を担います。大学院レベルの研究設計と論文化プロジェクトを見据えた伴走支援に強みがあります。",
+    specialties: ["英語論文レビュー", "RCT / PoC設計", "研究計画・論文化支援", "海外向け資料レビュー"],
+    researchHighlights: [
+      "『Decline in and recovery of fertility rates after COVID-19-related state of emergency in Japan.』など、社会実装と人口動態をつなぐ研究に関与",
+      "『Determinants of residual myometrial thickness after cesarean delivery: Comparative analysis of barbed versus conventional sutures-A sub-analysis from the SPIRAL trial』など、帝王切開関連の多施設研究・RCT文脈に携わる",
+      "『Objective assessment of cesarean section suturing techniques using a uterine simulator.』など、教育・手技評価に関する研究を公開"
+    ],
+    supportThemes: ["研究計画の壁打ち", "英語資料と海外向け説明", "PoCから論文化までの進行設計"],
+    selectedPublications: [
+      "Decline in and recovery of fertility rates after COVID-19-related state of emergency in Japan. (BMJ Open, 2024)",
+      "Determinants of residual myometrial thickness after cesarean delivery: Comparative analysis of barbed versus conventional sutures-A sub-analysis from the SPIRAL trial",
+      "Objective assessment of cesarean section suturing techniques using a uterine simulator."
+    ],
+    image: "/images/team/team-obgyn-rct-english.svg",
+    imageAlt: "三苫 智裕のプロフィールイメージ",
   },
   {
-    id: "obgyn-rct",
-    name: "産婦人科医B",
-    role: "産婦人科医 / 英語・RCT・研究実務担当",
-    shortRole: "英語・RCT・研究実務",
-    bio: "英語文献、RCT、研究実務に強みを持ち、観察研究から論文化までを事業文脈に接続する役割を担います。",
-    specialties: ["英語論文レビュー", "RCT / PoC設計", "研究実務の伴走", "海外向け資料レビュー"],
-    researchHighlights: ["臨床研究と論文化の経験を保有", "英語対応を前提にした事業説明を支援"],
-    supportThemes: ["研究計画の壁打ち", "海外向け説明資料", "エビデンス整理"],
-    image: "/images/team/team-obgyn-rct-english.svg",
-    imageAlt: "産婦人科医Bのプロフィールイメージ",
+    id: "obgyn-ai",
+    sortOrder: 2,
+    name: "大羽 輝",
+    role: "産婦人科医 / 医療AI・情報品質担当",
+    shortRole: "AI・情報品質",
+    bio: "産婦人科領域の臨床と研究開発支援を背景に、医療AI・情報品質設計を担当します。東北大学大学院医学系研究科の学術研究員、岡山大学病院 新医療研究開発センターの主任コーディネーター（特定助教）としての経験を踏まえ、AI活用ルール、研究データの読み解き、医療コンテンツの品質管理を企業実務に落とし込みます。大学院・研究教育の現場感覚を活かした支援が可能です。",
+    specialties: ["医療AI活用方針", "医療情報品質レビュー", "データ解釈と論点整理", "女性ヘルスケア領域"],
+    researchHighlights: [
+      "『Voice analysis and deep learning for detecting mental disorders in pregnant women: a cross-sectional study.』など、AI / deep learning と周産期メンタルヘルスの研究実績",
+      "『Partner relationships, hopelessness, and health status strongly predict maternal well-being: an approach using light gradient boosting machine』など、機械学習を用いた母体ウェルビーイング解析を実施",
+      "『Multicenter Remote-Access Simulation of Vaginal Delivery for High-Flexibility Medical Education during the Coronavirus Pandemic.』など、医療教育・シミュレーション研究を公表"
+    ],
+    supportThemes: ["AI導入時の監修フロー", "医療表現リスク整理", "コンテンツ品質基準の策定"],
+    selectedPublications: [
+      "Voice analysis and deep learning for detecting mental disorders in pregnant women: a cross-sectional study.",
+      "Partner relationships, hopelessness, and health status strongly predict maternal well-being: an approach using light gradient boosting machine",
+      "Multicenter Remote-Access Simulation of Vaginal Delivery for High-Flexibility Medical Education during the Coronavirus Pandemic."
+    ],
+    image: "/images/team/team-obgyn-ai.svg",
+    imageAlt: "大羽 輝のプロフィールイメージ",
   },
   {
     id: "rehab-media",
-    name: "リハビリ医C",
+    sortOrder: 3,
+    name: "豊田 康介",
     role: "リハビリテーション科医 / YouTube・広告・発信設計担当",
     shortRole: "YouTube・広告・発信設計",
-    bio: "YouTuberマネジメントや広告運用に強く、医療の正確性を保ちながら、再生・読了・CVにつながる発信設計を支援します。",
+    bio: "医療コンテンツの発信設計とマーケティング実務をつなぐ役割を担当します。YouTube運用、広告訴求、オウンドメディア改善までを見渡し、医療の正確性を保ちながら、再生・読了・CVにつながる導線設計を支援します。",
     specialties: ["YouTube企画レビュー", "広告訴求設計", "オウンドメディア運用", "コンテンツ導線設計"],
     researchHighlights: ["医療コンテンツの監修観点を保有", "マーケティング実務との橋渡しが可能"],
     supportThemes: ["YouTube / 広告の表現整理", "発信計画の伴走", "メディアの改善提案"],
+    selectedPublications: [],
     image: "/images/team/team-rehab-youtube-ad.svg",
-    imageAlt: "リハビリ医Cのプロフィールイメージ",
+    imageAlt: "豊田 康介のプロフィールイメージ",
   },
 ];
 

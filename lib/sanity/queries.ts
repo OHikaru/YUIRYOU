@@ -1,4 +1,4 @@
-import { groq } from "next-sanity";
+﻿import { groq } from "next-sanity";
 
 export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]{
   brandName,
@@ -12,8 +12,9 @@ export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]{
   pricingPlans
 }`;
 
-export const teamMembersQuery = groq`*[_type == "teamMember"] | order(name asc){
+export const teamMembersQuery = groq`*[_type == "teamMember"] | order(sortOrder asc, name asc){
   id,
+  sortOrder,
   name,
   role,
   shortRole,
@@ -21,6 +22,7 @@ export const teamMembersQuery = groq`*[_type == "teamMember"] | order(name asc){
   specialties,
   researchHighlights,
   supportThemes,
+  selectedPublications,
   imageAlt,
   "image": image.asset->url
 }`;

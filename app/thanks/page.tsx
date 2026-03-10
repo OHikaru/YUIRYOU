@@ -2,10 +2,11 @@
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { siteConfig } from "@/content/site";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "お問い合わせを受け付けました | 医療コンサルティングチーム",
+  title: `お問い合わせを受け付けました | ${siteConfig.brandName}`,
   description: "お問い合わせ完了ページ。通常2営業日以内を目安にご連絡します。",
   path: "/thanks",
 });

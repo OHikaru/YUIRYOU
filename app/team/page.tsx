@@ -7,8 +7,8 @@ import { absoluteUrl, buildMetadata } from "@/lib/seo";
 import { getTeamMembers } from "@/lib/site-data";
 
 export const metadata: Metadata = buildMetadata({
-  title: "チーム紹介 | 産婦人科医2名・リハビリ医1名の医師チーム",
-  description: "AI、英語、RCT、臨床研究、YouTube・広告の知見を持つ医師3名を紹介。法人向けの医療コンサルティングを支える専門家チームです。",
+  title: "チーム紹介 | 三苫 智裕・大羽 輝・豊田 康介",
+  description: "三苫 智裕、大羽 輝、豊田 康介の医師チームを紹介。英語・RCT・研究実務、AI・情報品質、YouTube・広告設計を横断して支援します。",
   path: "/team",
 });
 
@@ -35,9 +35,9 @@ export default async function TeamPage() {
           <p className="eyebrow">医師チーム</p>
           <h1>チーム紹介</h1>
           <div className="three-line-summary">
-            <p>産婦人科医2名とリハビリ医1名の医師チームです。</p>
-            <p>AI、英語、RCT、臨床研究、YouTube・広告の知見を持つ3名で支援します。</p>
-            <p>各メンバーの専門性と担当領域がわかる構成にしています。</p>
+            <p>三苫 智裕、大羽 輝、豊田 康介の医師チームです。</p>
+            <p>英語・RCT・研究実務、AI・情報品質、YouTube・広告設計を横断して支援します。</p>
+            <p>役割分担だけでなく、研究実績や公開論文も確認できる構成にしています。</p>
           </div>
         </div>
       </div>
@@ -74,17 +74,27 @@ export default async function TeamPage() {
                       </ul>
                     </div>
                   </div>
+                  {member.selectedPublications.length > 0 ? (
+                    <div className="team-card__columns">
+                      <div>
+                        <h3>主要論文</h3>
+                        <ul className="stack-list">
+                          {member.selectedPublications.map((item) => <li key={item}>{item}</li>)}
+                        </ul>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               </article>
             ))}
           </div>
           <div className="panel panel--accent">
             <p className="eyebrow">掲載情報</p>
-            <p>論文本数、所属、導入実績、ロゴ、メディア掲載などは、事実確認が取れたものから順次掲載しています。</p>
+            <p>三苫 智裕、大羽 輝の研究実績と主要論文は、2026年3月10日時点の researchmap 公開情報をもとに企業向けに再構成しています。</p>
+            <p>所属、論文、研究テーマは公開情報に基づいて反映し、導入実績やロゴなどは事実確認が取れたものから掲載します。</p>
           </div>
         </div>
       </section>
     </>
   );
 }
-

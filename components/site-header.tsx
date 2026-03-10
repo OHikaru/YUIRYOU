@@ -14,7 +14,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="shell site-header__inner">
         <Link href="/" className="brand-mark" aria-label="トップページへ戻る">
-          <span className="brand-mark__symbol">MC</span>
+          <span className="brand-mark__symbol">YR</span>
           <span>
             <strong>{siteConfig.brandName}</strong>
             <small>法人向け医療コンサルティング</small>

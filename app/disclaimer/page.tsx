@@ -1,10 +1,11 @@
 ﻿import type { Metadata } from "next";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { siteConfig } from "@/content/site";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "免責事項 | 医療コンサルティングチーム",
+  title: `免責事項 | ${siteConfig.brandName}`,
   description: "法人向け医療コンサルティングサイトの免責事項です。",
   path: "/disclaimer",
 });
