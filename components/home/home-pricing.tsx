@@ -1,0 +1,51 @@
+﻿import { homePageCopy } from "@/content/home-page-copy";
+import { SectionLead } from "@/components/ui";
+
+type PricingPlan = {
+  name: string;
+  price: string;
+  note: string;
+  features?: string[];
+};
+
+const pricingCardClasses = [
+  "pricing-card--diagnostic",
+  "pricing-card--advisory",
+  "pricing-card--growth",
+  "pricing-card--strategic",
+];
+
+export function HomePricing({ plans }: { plans: PricingPlan[] }) {
+  const copy = homePageCopy.ja;
+
+  return (
+    <section id="pricing" className="section section--pricing-surface">
+      <div className="shell">
+        <SectionLead eyebrow={copy.pricing.eyebrow} title={copy.pricing.title} description={copy.pricing.description} />
+        <div className="card-grid card-grid--pricing">
+          {plans.map((plan, index) => (
+            <article key={plan.name} className={`panel panel--pricing ${pricingCardClasses[index] ?? ""}`}>
+              <div className="pricing-card__top">
+                <span className="pricing-card__label">{copy.pricing.labels[index] ?? "伴走"}</span>
+                <p className="eyebrow">{plan.name}</p>
+              </div>
+              <h3>{plan.price}</h3>
+              <p className="pricing-note">{plan.note}</p>
+              <ul className="stack-list">
+                {(plan.features ?? []).map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+        <div className="pricing-guardrails pricing-guardrails--light">
+          <p>法人向けサービスです。</p>
+          <p>患者個人の相談は対象外です。</p>
+          <p>法務・薬機法の最終判断は専門家連携で行います。</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+

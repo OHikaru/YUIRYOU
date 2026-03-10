@@ -1,0 +1,12 @@
+﻿export { HomeComparison } from "./home-comparison";
+export { HomeFaq } from "./home-faq";
+export { HomeFinalCta } from "./home-final-cta";
+export { HomeFitCategories } from "./home-fit-categories";
+export { HomeHero } from "./home-hero";
+export { HomeIssues } from "./home-issues";
+export { HomePricing } from "./home-pricing";
+export { HomeProcess } from "./home-process";
+export { HomeSupportAreas } from "./home-support-areas";
+export { HomeTeam } from "./home-team";
+export { HomeTimeline } from "./home-timeline";
+

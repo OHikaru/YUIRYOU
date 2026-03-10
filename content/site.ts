@@ -2,19 +2,19 @@
   brandName: "YUIRYOU株式会社",
   brandNameEn: "YUIRYOU Inc.",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://yuiryou.vercel.app",
-  defaultTitle: "医療監修で終わらせない。医師3名が事業・研究・発信まで伴走する法人向け医療コンサルティング",
+  defaultTitle: "医療監修の先まで伴走。医師3名が、研究・AI・発信まで法人実務を前に進める法人向け医療コンサルティング",
   defaultDescription:
-    "産婦人科医2名とリハビリ医1名の医師チームが、医療・臨床研究・RCT・英語・AI・YouTube・広告まで横断支援する法人向け医療コンサルティングサイト。",
+    "フェムテック、ヘルスケアSaaS、医療メディア、海外準備中のスタートアップ向けに、英語・RCT・研究実務、医療AI・情報品質、YouTube・広告設計を横断支援する法人向け医療コンサルティングサイト。",
   ogImage: "/opengraph-image",
   updatedAt: "2026-03-10",
   contactEmail: "contact@example.com",
   phoneLabel: "初回相談はお問い合わせフォームから受付",
   primaryCta: {
-    label: "無料相談を申し込む",
+    label: "無料で相談範囲を整理する",
     href: "/contact",
   },
   secondaryCta: {
-    label: "診断パックの詳細を見る",
+    label: "料金プランを見る",
     href: "/#pricing",
   },
 };
@@ -654,4 +654,6 @@ export const articles: ArticleDetail[] = [
 
 export const serviceMap = new Map(services.map((service) => [service.slug, service]));
 export const articleMap = new Map(articles.map((article) => [article.slug, article]));
+
+
 
