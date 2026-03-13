@@ -35,8 +35,8 @@ export default async function InsightsPage({ searchParams }: { searchParams?: Pr
       >
         <div className="three-line-summary">
           <p>医療AI、女性向けヘルスケア、PoCから論文化、SEO/AIEOの4テーマを、一次情報と実務観点で掘り下げています。</p>
-          <p>小手先のノウハウではなく、事業判断、品質管理、研究設計、発信方針にそのまま使える論点を整理しています。</p>
-          <p>各記事はTL;DR、背景、具体策、FAQ、著者情報、出典を統一し、商談前共有や社内説明資料にも転用しやすい構成です。</p>
+          <p>制度、品質、研究設計、コンテンツ運用の各論点を、企業が意思決定しやすい粒度で整理しています。</p>
+          <p>見出しごとに論点を分け、出典と要点を確認しやすい構成に整えています。</p>
         </div>
       </PageHeroWithImage>
 

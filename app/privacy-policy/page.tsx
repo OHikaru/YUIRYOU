@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
         items={[{ href: "/privacy-policy", label: "個人情報保護指針" }]}
         eyebrow="Privacy Guideline"
         title="個人情報保護指針"
-        imageSrc="/images/page-hero-home.png"
+        imageSrc="/images/page-hero-privacy.png"
         imageAlt="個人情報保護指針のイメージ"
         imageWidth={1024}
         imageHeight={1024}

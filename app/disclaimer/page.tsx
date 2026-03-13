@@ -17,7 +17,7 @@ export default function DisclaimerPage() {
         items={[{ href: "/disclaimer", label: "免責事項" }]}
         eyebrow="Disclaimer"
         title="免責事項"
-        imageSrc="/images/page-hero-home.png"
+        imageSrc="/images/page-hero-disclaimer.png"
         imageAlt="免責事項のイメージ"
         imageWidth={1024}
         imageHeight={1024}

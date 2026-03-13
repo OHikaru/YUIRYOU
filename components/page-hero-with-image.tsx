@@ -16,6 +16,7 @@ type PageHeroWithImageProps = {
   bodyClassName?: string;
   heroClassName?: string;
   imagePriority?: boolean;
+  imageClassName?: string;
 };
 
 export function PageHeroWithImage({
@@ -31,6 +32,7 @@ export function PageHeroWithImage({
   bodyClassName,
   heroClassName,
   imagePriority = false,
+  imageClassName,
 }: PageHeroWithImageProps) {
   return (
     <div className={`page-hero page-hero--compact ${heroClassName ?? ""}`.trim()}>
@@ -48,7 +50,7 @@ export function PageHeroWithImage({
               alt={imageAlt}
               width={imageWidth}
               height={imageHeight}
-              className="page-hero__image"
+              className={`page-hero__image ${imageClassName ?? ""}`.trim()}
               priority={imagePriority}
             />
           </div>

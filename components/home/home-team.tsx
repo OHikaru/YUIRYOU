@@ -1,25 +1,38 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import type { TeamMember } from "@/content/site";
 import { SectionLead } from "@/components/ui";
 
+const researchmapLinks: Record<string, { href: string; label: string }> = {
+  "obgyn-rct": { href: "https://researchmap.jp/tmitoma", label: "researchmap" },
+  "obgyn-ai": { href: "https://researchmap.jp/Hikaru_Ooba", label: "researchmap" },
+};
+
 export function HomeTeam({ members }: { members: TeamMember[] }) {
   return (
     <section className="section">
       <div className="shell">
-        <SectionLead eyebrow="医師チーム" title="チーム紹介" description="医師ごとの専門性と役割分担がひと目で伝わるように整理しています。" />
-        <div className="card-grid card-grid--three card-grid--team">
-          {members.map((member) => (
-            <article key={member.id} className="panel panel--profile team-preview-card">
-              <Image src={member.image} alt={member.imageAlt} width={320} height={320} />
-              <p className="eyebrow">{member.shortRole}</p>
-              <h3>{member.name}</h3>
-              <p className="role-label">{member.role}</p>
-              <p>{member.bio}</p>
-              <Link href="/team" className="support-area-card__link">詳細を見る</Link>
-            </article>
-          ))}
+        <SectionLead eyebrow="医師チーム" title="チーム紹介" description="医師ごとの専門性と役割分担を、研究・AI・発信の3軸で整理しています。" />
+        <div className="card-grid card-grid--three card-grid--team team-preview-grid">
+          {members.map((member) => {
+            const profileLink = researchmapLinks[member.id];
+            return (
+              <article key={member.id} className="panel panel--profile team-preview-card team-preview-card--text">
+                <p className="eyebrow">{member.shortRole}</p>
+                <h3>{member.name}</h3>
+                <p className="role-label">{member.role}</p>
+                <p>{member.bio}</p>
+                <div className="team-preview-card__links">
+                  {profileLink ? (
+                    <a href={profileLink.href} target="_blank" rel="noreferrer" className="support-area-card__link">
+                      {profileLink.label}を見る
+                    </a>
+                  ) : null}
+                  <Link href="/team" className="support-area-card__link">詳細を見る</Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

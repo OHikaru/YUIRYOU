@@ -17,7 +17,7 @@ export default function ThanksPage() {
       items={[{ href: "/thanks", label: "お問い合わせ完了" }]}
       eyebrow="Thanks"
       title="お問い合わせを受け付けました"
-      imageSrc="/images/page-hero-contact.jpg"
+      imageSrc="/images/page-hero-thanks.jpg"
       imageAlt="お問い合わせ完了のイメージ"
       imageWidth={1408}
       imageHeight={768}

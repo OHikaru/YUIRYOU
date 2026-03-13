@@ -329,9 +329,9 @@ export const services: ServiceDetail[] = [
     ],
     deliverables: [
       "レビューコメント付き資料",
-      "論点整理メモ",
+      "論点整理ドキュメント",
       "改善優先順位リスト",
-      "月次の示唆メモ",
+      "月次レビューサマリー",
     ],
     idealClients: [
       "医療接点のあるLPや営業資料を改善したい法人",
@@ -425,7 +425,7 @@ export const services: ServiceDetail[] = [
       "AI活用ガイドライン案",
       "品質レビュー観点表",
       "英語資料レビューコメント",
-      "海外向け説明論点メモ",
+      "海外向け説明資料の改善案",
     ],
     idealClients: [
       "AIを組み込むヘルスケアプロダクト企業",
@@ -470,7 +470,7 @@ export const services: ServiceDetail[] = [
     ],
     deliverables: [
       "企画レビューシート",
-      "表現リスク観点メモ",
+      "表現リスクレビューシート",
       "導線改善の提案資料",
       "発信計画の優先順位表",
     ],
