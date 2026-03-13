@@ -37,6 +37,8 @@ export function PageHeroWithImage({
   imageClassName,
   locale = "ja",
 }: PageHeroWithImageProps) {
+  const mediaVariant = imageWidth === imageHeight ? "page-hero__media--square" : "page-hero__media--landscape";
+
   return (
     <div className={`page-hero page-hero--compact ${heroClassName ?? ""}`.trim()}>
       <div className="shell">
@@ -44,10 +46,10 @@ export function PageHeroWithImage({
           <div className={`page-hero__body ${narrowBody ? "page-hero__body--narrow" : ""} ${bodyClassName ?? ""}`.trim()}>
             <Breadcrumbs items={items} locale={locale} />
             <p className="eyebrow">{eyebrow}</p>
-            <h1>{title}</h1>
+            <h1 className="page-hero__title">{title}</h1>
             {children}
           </div>
-          <div className="page-hero__media">
+          <div className={`page-hero__media ${mediaVariant}`.trim()}>
             <Image
               src={imageSrc}
               alt={imageAlt}

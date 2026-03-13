@@ -21,18 +21,20 @@ export function SiteFooter() {
           <h2>{copy.footerTitle}</h2>
           <p>{copy.footerDescription}</p>
         </div>
-        {copy.footerGroups.map((group) => (
-          <div key={group.title} className="site-footer__nav-block">
-            <h3>{group.title}</h3>
-            <ul className="footer-list">
-              {group.links.map((link) => (
-                <li key={link.href}>
-                  <Link href={withLocale(link.href, locale)}>{link.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="site-footer__nav">
+          {copy.footerGroups.map((group) => (
+            <section key={group.title} className="site-footer__nav-block">
+              <h3>{group.title}</h3>
+              <ul className="footer-list">
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={withLocale(link.href, locale)}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
       </div>
       <div className="shell site-footer__bottom">
         <p>{copy.footerNotice}</p>

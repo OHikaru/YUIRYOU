@@ -212,7 +212,7 @@ export const chromeCopy: Record<SiteLocale, ChromeCopy> = {
       { href: "/contact", label: "Contact" },
     ],
     primaryCta: "Book a consultation",
-    languageSwitchLabel: "日本語",
+    languageSwitchLabel: "Japanese",
     languageSwitchAriaLabel: "Switch to Japanese pages",
     footerEyebrow: "Healthcare Business Partner",
     footerTitle: "Medical credibility, research planning, AI governance, and communication design in one partner.",
