@@ -1,4 +1,4 @@
-import { SectionLead } from "@/components/ui";
+﻿import { SectionLead } from "@/components/ui";
 import { homePageCopy } from "@/content/home-page-copy";
 import type { SiteLocale } from "@/lib/locale";
 
@@ -13,7 +13,16 @@ export function HomeTimeline({ phases, locale = "ja" }: { phases: TimelinePhase[
   return (
     <section className="section section--muted">
       <div className="shell">
-        <SectionLead eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
+        <SectionLead
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          description={
+            <>
+              <p>{copy.description}</p>
+              <p className="section-footnote">{copy.notice}</p>
+            </>
+          }
+        />
         <div className="timeline-grid">
           {phases.map((phase) => (
             <article key={phase.title} className="timeline-card">

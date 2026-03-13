@@ -1,4 +1,4 @@
-export type HomeLocale = "ja" | "en";
+﻿export type HomeLocale = "ja" | "en";
 
 type HomeHighlight = {
   label: string;
@@ -48,6 +48,7 @@ type HomePageCopy = {
     eyebrow: string;
     title: string;
     description: string;
+    notice: string;
   };
   team: {
     eyebrow: string;
@@ -60,6 +61,7 @@ type HomePageCopy = {
     eyebrow: string;
     title: string;
     description: string;
+    notice: string;
     labels: string[];
     includesLabel: string;
     guardrails: string[];
@@ -138,6 +140,7 @@ export const homePageCopy: Record<HomeLocale, HomePageCopy> = {
       eyebrow: "30 / 60 / 90 Days",
       title: "最初の90日の進め方",
       description: "現状把握、改善実装、次四半期の設計までを、優先順位に沿って整理します。",
+      notice: "以下は典型的な案件における進め方の一例です。実際の順序や期間は、課題の大きさと社内体制に応じて個別に設計します。",
     },
     team: {
       eyebrow: "Team",
@@ -151,6 +154,7 @@ export const homePageCopy: Record<HomeLocale, HomePageCopy> = {
       title: "月額帯、会議頻度、成果物の目安を先に比較できます。",
       description:
         "検討段階で判断しやすいように、会議頻度、レビュー本数、成果物の目安を標準プランとして明示しています。課題の大きさと関与範囲に応じて選べます。",
+      notice: "掲載している内容は典型的な案件の一例です。詳細な支援範囲とお見積もりは、課題整理後に個別でご案内します。",
       labels: ["入口設計", "定例壁打ち", "施策伴走", "経営伴走"],
       includesLabel: "主な内容",
       guardrails: [
@@ -232,6 +236,7 @@ export const homePageCopy: Record<HomeLocale, HomePageCopy> = {
       eyebrow: "30 / 60 / 90 Days",
       title: "What the first 90 days look like",
       description: "Clarify the current state, implement improvements, and define the next quarter with clear priorities.",
+      notice: "This is an illustrative example of a typical engagement. The actual sequence and pace are adjusted to the scope of work and the client's internal setup.",
     },
     team: {
       eyebrow: "Team",
@@ -245,6 +250,7 @@ export const homePageCopy: Record<HomeLocale, HomePageCopy> = {
       title: "Compare meeting cadence, review scope, and deliverables before the first call.",
       description:
         "We disclose the standard service bands so companies can judge fit by scope and depth rather than vague package names.",
+      notice: "The plans shown here are illustrative examples. Final scope and pricing are provided after confirming the issue, materials, and expected level of involvement.",
       labels: ["Entry", "Advisory", "Growth", "Strategic"],
       includesLabel: "What is typically included",
       guardrails: [

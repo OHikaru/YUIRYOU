@@ -1,4 +1,4 @@
-import { homePageCopy } from "@/content/home-page-copy";
+﻿import { homePageCopy } from "@/content/home-page-copy";
 import { SectionLead } from "@/components/ui";
 import type { SiteLocale } from "@/lib/locale";
 
@@ -22,7 +22,16 @@ export function HomePricing({ plans, locale = "ja" }: { plans: PricingPlan[]; lo
   return (
     <section id="pricing" className="section section--pricing-surface">
       <div className="shell">
-        <SectionLead eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
+        <SectionLead
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          description={
+            <>
+              <p>{copy.description}</p>
+              <p className="section-footnote">{copy.notice}</p>
+            </>
+          }
+        />
         <div className="card-grid card-grid--pricing pricing-grid-shell">
           {plans.map((plan, index) => (
             <article key={plan.name} className={`panel panel--pricing ${pricingCardClasses[index] ?? ""}`}>
