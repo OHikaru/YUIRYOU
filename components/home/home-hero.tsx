@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 
 import { homePageCopy } from "@/content/home-page-copy";
@@ -15,10 +15,10 @@ export function HomeHero({ trustChips, locale = "ja" }: HomeHeroProps) {
 
   return (
     <section className="hero hero--home">
-      <div className="shell hero__layout hero__layout--editorial">
-        <div className="hero-copy-cluster">
+      <div className="shell hero__layout hero__layout--editorial hero__layout--home">
+        <div className="hero-copy-cluster hero-copy-cluster--home">
           <p className="eyebrow">{copy.hero.eyebrow}</p>
-          <h1>{copy.hero.title}</h1>
+          <h1 className="hero-title--home">{copy.hero.title}</h1>
           <p className="hero-copy hero-copy--strong">{copy.hero.description}</p>
           <div className="hero-actions">
             <Link href={withLocale("/contact", locale)} className="button button--solid">{copy.hero.primaryCta}</Link>
@@ -33,7 +33,7 @@ export function HomeHero({ trustChips, locale = "ja" }: HomeHeroProps) {
             ))}
           </div>
         </div>
-        <div className="hero-stage">
+        <div className="hero-stage hero-stage--home">
           <div className="hero-visual-card hero-visual-card--home">
             <Image
               src="/images/page-hero-home.png"

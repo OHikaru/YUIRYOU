@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   color-scheme: light;
   --bg: #f7f9fc;
   --bg-soft: #eef3fb;
@@ -255,6 +255,11 @@ main { overflow: clip; }
   align-items: center;
 }
 .hero__layout--editorial { align-items: center; }
+.hero__layout--home {
+  grid-template-columns: minmax(0, 560px) minmax(0, 1fr);
+  gap: clamp(36px, 5vw, 92px);
+  align-items: start;
+}
 .grid-two--wide-gap { gap: clamp(28px, 5vw, 72px); }
 .hero h1,
 .page-hero h1 {
@@ -266,6 +271,13 @@ main { overflow: clip; }
   text-wrap: pretty;
 }
 .page-hero__body--article .page-hero__title { max-width: 14ch; }
+.hero-title--home {
+  max-width: 10.2ch;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  line-break: strict;
+  text-wrap: pretty;
+}
 .hero-copy--strong {
   max-width: 58ch;
   font-size: 1.05rem;
@@ -280,6 +292,11 @@ main { overflow: clip; }
   min-width: 0;
   max-width: min(100%, 660px);
   padding-right: clamp(0px, 1.4vw, 18px);
+}
+.hero-copy-cluster--home {
+  min-width: 0;
+  max-width: 560px;
+  padding-right: clamp(0px, 1.6vw, 18px);
 }
 .page-hero__body--narrow { max-width: min(100%, 620px); }
 .page-hero__body .three-line-summary,
@@ -317,6 +334,10 @@ main { overflow: clip; }
   font-size: 0.9rem;
 }
 .hero-stage { display: grid; gap: 18px; }
+.hero-stage--home {
+  min-width: 0;
+  align-content: start;
+}
 .hero-visual-card,
 .panel,
 .article-panel,
@@ -329,6 +350,11 @@ main { overflow: clip; }
 .hero-visual-card--home,
 .page-hero__media,
 .panel--visual { overflow: hidden; }
+.hero-visual-card--home {
+  max-width: min(100%, 620px);
+  justify-self: end;
+  aspect-ratio: 1 / 1;
+}
 .hero-visual-card--home img,
 .page-hero__image,
 .panel--visual img {
@@ -737,6 +763,73 @@ main { overflow: clip; }
 }
 .footer-list a { text-decoration: none; }
 
+.company-profile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(24px, 4vw, 40px);
+  align-items: start;
+}
+.company-profile-card,
+.company-value-card {
+  display: grid;
+  gap: 18px;
+}
+.company-profile-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+.company-profile-list__row {
+  display: grid;
+  gap: 6px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.company-profile-list__row:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.company-profile-list dt {
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.company-profile-list dd {
+  margin: 0;
+  color: var(--brand);
+  font-weight: 600;
+  line-height: 1.7;
+}
+.company-profile-list dd a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.company-values-stack {
+  display: grid;
+  gap: 18px;
+}
+.company-value-card h3 {
+  max-width: 20ch;
+  font-size: clamp(1.3rem, 2.35vw, 2rem);
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+.company-value-card__subheadline {
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.75;
+}
+.company-value-card__body {
+  display: grid;
+  gap: 10px;
+}
+.company-value-card__body p,
+.company-value-card__subheadline {
+  margin: 0;
+}
+
 .contact-side-stack {
   display: grid;
   gap: 18px;
@@ -955,6 +1048,15 @@ main { overflow: clip; }
 
 @media (max-width: 1180px) {
   .card-grid--five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hero__layout--home {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .hero-copy-cluster--home {
+    max-width: 100%;
+    padding-right: 0;
+  }
+  .hero-title--home { max-width: 11.5ch; }
   .hero-highlight-grid { grid-template-columns: 1fr; }
   .site-footer__grid,
   .grid-two,
@@ -987,6 +1089,7 @@ main { overflow: clip; }
 
 @media (max-width: 920px) {
   .comparison-table-shell { display: none; }
+  .hero-title--home { max-width: 100%; }
   .comparison-mobile-list { display: grid; gap: 16px; }
   .card-grid--five,
   .card-grid--three,
@@ -1042,4 +1145,14 @@ main { overflow: clip; }
   .team-card { padding: 22px; }
   .site-footer__nav { grid-template-columns: 1fr; }
   .site-footer__bottom { flex-direction: column; }
+}
+
+
+
+@media (max-width: 1180px) {
+  .company-profile-grid { grid-template-columns: 1fr; }
+  .hero-visual-card--home {
+    max-width: 100%;
+    justify-self: stretch;
+  }
 }

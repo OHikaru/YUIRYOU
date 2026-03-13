@@ -1,4 +1,5 @@
-﻿export { HomeComparison } from "./home-comparison";
+﻿export { HomeCompanyProfile } from "./home-company-profile";
+export { HomeComparison } from "./home-comparison";
 export { HomeFaq } from "./home-faq";
 export { HomeFinalCta } from "./home-final-cta";
 export { HomeFitCategories } from "./home-fit-categories";
@@ -9,4 +10,3 @@ export { HomeProcess } from "./home-process";
 export { HomeSupportAreas } from "./home-support-areas";
 export { HomeTeam } from "./home-team";
 export { HomeTimeline } from "./home-timeline";
-
