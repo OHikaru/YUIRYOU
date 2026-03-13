@@ -7,13 +7,13 @@ const logoBuffer = readFileSync(join(process.cwd(), "public", "images", "logo-yu
 const logoDataUrl = `data:image/png;base64,${logoBuffer.toString("base64")}`;
 
 export const size = {
-  width: 96,
-  height: 96,
+  width: 180,
+  height: 180,
 };
 
 export const contentType = "image/png";
 
-export default function Icon() {
+export default function AppleIcon() {
   return new ImageResponse(
     (
       <div
@@ -24,9 +24,7 @@ export default function Icon() {
           alignItems: "center",
           justifyContent: "center",
           background: "#ffffff",
-          borderRadius: "24px",
-          border: "1px solid rgba(16, 42, 114, 0.14)",
-          padding: "14px",
+          padding: "22px",
         }}
       >
         <img
