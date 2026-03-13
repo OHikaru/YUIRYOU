@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   title: siteConfig.defaultTitle,
   description: siteConfig.defaultDescription,
   alternates: { canonical: "/" },
-  manifest: "/manifest.webmanifest",
   icons: {
     icon: [{ url: "/icon", type: "image/png", sizes: "96x96" }],
     shortcut: [{ url: "/icon", type: "image/png", sizes: "96x96" }],
@@ -68,6 +67,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
 
   return (
     <html lang="ja">
+      <head>
+        <link rel="manifest" href="/manifest" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="apple-mobile-web-app-title" content="YUIRYOU" />
+      </head>
       <body className={notoSerifJp.variable}>
         <HtmlLangManager />
         <a href="#main-content" className="skip-link">本文へスキップ</a>
