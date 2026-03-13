@@ -1322,7 +1322,17 @@ main { overflow: clip; }
 
 @media (max-width: 760px) {
   :root { --shell: min(100vw - 24px, 100%); }
-  .section { padding: 64px 0; }
+  .section { padding: 56px 0; }
+  .section-lead {
+    margin-bottom: 28px;
+  }
+  .section-lead h2 {
+    font-size: clamp(1.55rem, 8vw, 2.2rem);
+  }
+  .hero,
+  .page-hero {
+    padding: 76px 0 44px;
+  }
   .site-header__inner {
     flex-direction: column;
     align-items: stretch;
@@ -1346,6 +1356,10 @@ main { overflow: clip; }
     flex-direction: column;
     align-items: flex-start;
   }
+  .page-hero__layout,
+  .hero__layout--home {
+    gap: 22px;
+  }
   .hero h1,
   .page-hero h1 {
     max-width: 100%;
@@ -1361,8 +1375,17 @@ main { overflow: clip; }
   .cta-banner,
   .team-card,
   .hero-principle-card { padding: 22px; }
-  .site-footer__nav { grid-template-columns: 1fr; }
-  .site-footer__bottom { flex-direction: column; }
+  .site-footer {
+    padding: 52px 0 28px;
+  }
+  .site-footer__nav {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .site-footer__bottom {
+    flex-direction: column;
+    margin-top: 24px;
+  }
 }
 
 
